@@ -1,0 +1,552 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="src/output.css" rel="stylesheet">
+  <!-- For icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 bg-black text-white">
+    <div class="container mx-auto flex items-center justify-between py-4 px-4">
+      <!-- Brand -->
+      <a href="#!" class="font-bold text-lg nav-text">Material Tailwind</a>
+
+      <!-- Desktop Links -->
+      <ul class="hidden lg:flex gap-6">
+        <li><a href="#" class="nav-text">Home</a></li>
+        <li><a href="#" class="nav-text">About Us</a></li>
+        <li><a href="#" class="nav-text">Contact Us</a></li>
+        <li><a href="#" class="nav-text">Docs</a></li>
+      </ul>
+
+      <!-- Desktop Socials -->
+      <div class="hidden lg:flex gap-3 lg:items-center">
+        <i class="fa-brands fa-twitter text-base nav-text"></i>
+        <i class="fa-brands fa-facebook text-base nav-text"></i>
+        <i class="fa-brands fa-instagram text-base nav-text"></i>
+        <a href="#!">
+          <button id="blocks-btn"
+            class="ml-2 px-4 py-2 rounded-lg bg-white text-black font-bold text-xs shadow-md transition-all duration-500">
+            Blocks
+          </button>
+        </a>
+      </div>
+
+      <!-- Mobile menu button -->
+      <button id="menu-btn" class="lg:hidden">
+        <svg class="h-6 w-6 nav-text" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu (hidden by default) -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-black text-white px-6 py-4 space-y-4">
+      <a href="#" class="block nav-text">Home</a>
+      <a href="#" class="block nav-text">About Us</a>
+      <a href="#" class="block nav-text">Contact Us</a>
+      <a href="#" class="block nav-text">Docs</a>
+      <div class="flex gap-3">
+        <i class="fa-brands fa-twitter text-base nav-text"></i>
+        <i class="fa-brands fa-facebook text-base nav-text"></i>
+        <i class="fa-brands fa-instagram text-base nav-text"></i>
+      </div>
+      <a href="#!">
+        <button class="w-full py-2 rounded-lg bg-white text-black font-bold text-xs shadow-md">
+          Blocks
+        </button>
+      </a>
+    </div>
+  </nav>
+  <script>
+    // Navbar scroll color change
+    const navbar = document.getElementById("navbar");
+    const navTexts = document.querySelectorAll(".nav-text");
+    const blocksBtn = document.getElementById("blocks-btn");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) {
+        navbar.classList.remove("bg-black", "text-white");
+        navbar.classList.add("bg-white", "text-black", "shadow-md");
+
+        navTexts.forEach(el => {
+          el.classList.remove("text-white");
+          el.classList.add("text-black");
+        });
+
+        blocksBtn.classList.remove("bg-white", "text-black");
+        blocksBtn.classList.add("bg-black", "text-white");
+      } else {
+        navbar.classList.remove("bg-white", "text-black", "shadow-md");
+        navbar.classList.add("bg-black", "text-white");
+
+        navTexts.forEach(el => {
+          el.classList.remove("text-black");
+          el.classList.add("text-white");
+        });
+
+        blocksBtn.classList.remove("bg-black", "text-white");
+        blocksBtn.classList.add("bg-white", "text-black");
+      }
+    });
+
+    // Mobile menu toggle
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+  </script>
+  <!-- hero section -->
+  <div class="count grid h-[150vh] w-full grid-cols-1 place-items-center lg:grid-cols-2 bg-black">
+  <div class="col-span-1 flex flex-col justify-center px-8">
+    <h1 class="text-5xl font-semibold text-white mb-4 ms-10">Your Perfect <br> Learning App</h1>
+    <p class="text-xl text-white mb-7 ms-10">Our app is here to empower you on your quest for knowledge, anytime and anywhere.</p>
+    <h6 class="text-base font-semibold text-white mb-4 ms-10">Get the app</h6>
+    <div class="flex flex-col gap-2 md:flex-row">
+      <!-- Buttons -->
+             <div class="flex flex-col gap-2 md:mb-2 md:w-10/12 md:flex-row ms-10">
+        <button
+          class="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-sm py-3.5 px-7 rounded-lg bg-white text-blue-gray-900 shadow-md shadow-blue-gray-500/10 hover:shadow-lg hover:shadow-blue-gray-500/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none flex justify-center items-center gap-3"
+          type="button">
+          <img alt="metamask" loading="lazy" width="256" height="256" decoding="async" data-nimg="1" class="w-6 h-6"
+            src="apple icon.png" style="color: transparent;">App Store</button>
+        <button
+          class="align-middle select-none font-sans font-bold text-center uppercase
+           transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-sm py-3.5 px-7 
+           rounded-lg bg-white text-blue-gray-900 shadow-md shadow-blue-gray-500/10 hover:shadow-lg
+            hover:shadow-blue-gray-500/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] 
+          active:shadow-none flex justify-center items-center gap-3"
+          type="button">
+          <img alt="metamask" loading="lazy" width="256" height="256" decoding="async" data-nimg="1" class="w-6 h-6"
+            src="google icon.png" style="color: transparent;">Google Play
+        </button>
+      </div>
+    </div>
+  </div>
+  <img src="phone 01.png" class="col-span-1 max-h-[30rem] lg:max-h-[40rem] mt-20" />
+</div>
+
+  <!-- Overlapping Card -->
+  <div class="mx-8 lg:mx-16 -mt-24 relative z-10 rounded-xl bg-white p-5 md:p-14 shadow-lg">
+  <div>
+    <h3 class="text-3xl font-semibold text-blue-gray-900 mb-3">Learning App</h3>
+    <p class="text-base text-gray-500 lg:w-5/12">
+      Download our app to dive into a vast library of courses, tutorials, and study materials on a wide range of
+      subjects.<br>
+      From programming and language learning to personal development and beyond
+    </p>
+  </div>
+</div>
+
+  <!--top section  -->
+  <div class="container mx-auto mb-20 text-center mt-20 px-4 sm:px-6 lg:px-8">
+  <p class="block font-sans text-xs sm:text-sm md:text-base font-bold uppercase text-blue-gray-900 mb-2">
+    Your Learning App
+  </p>
+
+  <h1 class="block font-sans text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight text-blue-gray-900 mb-4">
+    Diverse Learning Resources
+  </h1>
+
+  <p class="block font-sans text-sm sm:text-base md:text-lg lg:text-xl text-gray-500 leading-relaxed mx-auto max-w-3xl">
+    Access your learning materials on the go. Whether you're commuting, waiting for a friend, 
+    or just have a few minutes to spare, our app fits seamlessly into your busy life.
+  </p>
+</div>
+  <div class="p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+  <!-- Card 1 -->
+  <div>
+    <div class="mb-4 grid h-12 w-12  rounded-lg bg-gray-900 p-2.5 text-white place-content-center">
+      <!-- icon -->
+       <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="h-6 w-6">
+          <path fill-rule="evenodd"
+            d="M12 1.5a.75.75 0 01.75.75V4.5a.75.75 0 01-1.5 0V2.25A.75.75 0 0112 1.5zM5.636 4.136a.75.75 0 011.06 0l1.592 1.591a.75.75 0 01-1.061 1.06l-1.591-1.59a.75.75 0 010-1.061zm12.728 0a.75.75 0 010 1.06l-1.591 1.592a.75.75 0 01-1.06-1.061l1.59-1.591a.75.75 0 011.061 0zm-6.816 4.496a.75.75 0 01.82.311l5.228 7.917a.75.75 0 01-.777 1.148l-2.097-.43 1.045 3.9a.75.75 0 01-1.45.388l-1.044-3.899-1.601 1.42a.75.75 0 01-1.247-.606l.569-9.47a.75.75 0 01.554-.68zM3 10.5a.75.75 0 01.75-.75H6a.75.75 0 010 1.5H3.75A.75.75 0 013 10.5zm14.25 0a.75.75 0 01.75-.75h2.25a.75.75 0 010 1.5H18a.75.75 0 01-.75-.75zm-8.962 3.712a.75.75 0 010 1.061l-1.591 1.591a.75.75 0 11-1.061-1.06l1.591-1.592a.75.75 0 011.06 0z"
+            clip-rule="evenodd" />
+        </svg>
+    </div>
+    <h5 class="text-lg sm:text-xl font-semibold text-blue-gray-900 mb-2">Expert Instructors</h5>
+    <p class="text-sm sm:text-base text-gray-500">
+      Learn from the best. Our instructors are industry experts,
+      academics, and <br> seasoned professionals dedicated to helping you.
+    </p>
+  </div>
+
+  <!-- Card 2 -->
+  <div>
+    <div class="mb-4 grid h-12 w-12 place-content-center rounded-lg bg-gray-900 p-2.5 text-white">
+      <!-- icon -->
+       <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="h-6 w-6">
+          <path
+            d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z">
+          </path>
+        </svg>
+    </div>
+    <h5 class="text-lg sm:text-xl font-semibold text-blue-gray-900 mb-2">Flexible Learning</h5>
+    <p class="text-sm sm:text-base text-gray-500">
+      Engage with interactive quizzes, hands-on exercises, and discussion <br>
+       forums to reinforce your understanding and connect..
+    </p>
+  </div>
+
+  <!-- Card 3 -->
+  <div class="mt-10 lg:mt-20">
+    <div class="mb-4 grid h-12 w-12 place-content-center rounded-lg bg-gray-900 p-2.5 text-white">
+      <!-- icon -->
+       <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="h-6 w-6">
+          <path fill-rule="evenodd"
+            d="M12 1.5a5.25 5.25 0 00-5.25 5.25v3a3 3 0 00-3 3v6.75a3 3 0 003 3h10.5a3 3 0 003-3v-6.75a3 3 0 00-3-3v-3c0-2.9-2.35-5.25-5.25-5.25zm3.75 8.25v-3a3.75 3.75 0 10-7.5 0v3h7.5z"
+            clip-rule="evenodd"></path>
+        </svg>
+    </div>
+    <h5 class="text-lg sm:text-xl font-semibold text-blue-gray-900 mb-2">Expert Instructors</h5>
+    <p class="text-sm sm:text-base text-gray-500">
+      Earn certificates and badges as you <br>
+       complete courses, showcasing your newfound skills to the world.
+    </p>
+  </div>
+
+  <!-- Card 4 -->
+  <div class="mt-10 lg:mt-20">
+    <div class="mb-4 grid h-12 w-12 place-content-center rounded-lg bg-gray-900 p-2.5 text-white">
+      <!-- icon -->
+       <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="h-6 w-6">
+          <path
+            d="M12 .75a8.25 8.25 0 00-4.135 15.39c.686.398 1.115 1.008 1.134 1.623a.75.75 0 00.577.706c.352.083.71.148 1.074.195.323.041.6-.218.6-.544v-4.661a6.714 6.714 0 01-.937-.171.75.75 0 11.374-1.453 5.261 5.261 0 002.626 0 .75.75 0 11.374 1.452 6.712 6.712 0 01-.937.172v4.66c0 .327.277.586.6.545.364-.047.722-.112 1.074-.195a.75.75 0 00.577-.706c.02-.615.448-1.225 1.134-1.623A8.25 8.25 0 0012 .75z">
+          </path>
+          </svg>
+    </div>
+    <h5 class="text-lg sm:text-xl font-semibold text-blue-gray-900 mb-2">Flexible Learning</h5>
+    <p class="text-sm sm:text-base text-gray-500">
+      Stay on top of your learning journey with progress tracking and <br>
+       personalized recommendations to keep you motivated..
+    </p>
+  </div>
+</div>
+
+  <!-- phone 2 -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto items-center"><img alt="iphone-photo"
+      loading="lazy" width="256" height="256" decoding="async" data-nimg="1" class="col-span-1 w-1/2 mx-auto lg:w-10/12"
+      src="phone 1.png" style="color: transparent;">
+    <div class="col-span-1 mx-auto max-w-lg px-4 lg:px-0">
+      <h2
+        class="block antialiased tracking-normal font-sans text-4xl font-semibold leading-[1.3] text-blue-gray-900 mb-4">
+        Mobile Convenience</h2>
+      <p class="block antialiased font-sans font-normal  mb-5 px-4 text-left text-xl !text-gray-500 lg:px-0">Access your
+        learning materials on the go.</p>
+      <div class="col-span-2 grid gap-5 grid-cols-2 ">
+        <div class="relative flex flex-col bg-clip-border rounded-xl bg-transparent text-gray-700 shadow-none">
+          <div class="p-6 grid px-0">
+            <h2
+              class="block antialiased tracking-normal font-sans text-4xl font-semibold leading-[1.3] text-blue-gray-900 mb-2">
+              100</h2>
+            <p class="block antialiased font-sans text-base leading-relaxed text-inherit font-normal">Learning Courses
+            </p>
+          </div>
+        </div>
+        <div class="relative flex flex-col bg-clip-border rounded-xl bg-transparent text-gray-700 shadow-none">
+          <div class="p-6 grid px-0">
+            <h2
+              class="block antialiased tracking-normal font-sans text-4xl font-semibold leading-[1.3] text-blue-gray-900 mb-2">
+              500+</h2>
+            <p class="block antialiased font-sans text-base leading-relaxed text-inherit font-normal">Expert Instructors
+            </p>
+          </div>
+        </div>
+        <div class="relative flex flex-col bg-clip-border rounded-xl bg-transparent text-gray-700 shadow-none">
+          <div class="p-6 grid px-0">
+            <h2
+              class="block antialiased tracking-normal font-sans text-4xl font-semibold leading-[1.3] text-blue-gray-900 mb-2">
+              24/7</h2>
+            <p class="block antialiased font-sans text-base leading-relaxed text-inherit font-normal">Support</p>
+          </div>
+        </div>
+        <div class="relative flex flex-col bg-clip-border rounded-xl bg-transparent text-gray-700 shadow-none">
+          <div class="p-6 grid px-0">
+            <h2
+              class="block antialiased tracking-normal font-sans text-4xl font-semibold leading-[1.3] text-blue-gray-900 mb-2">
+              5/5</h2>
+            <p class="block antialiased font-sans text-base leading-relaxed text-inherit font-normal">Review Stars</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- clients -->
+  <div class="mb-20 flex w-full flex-col items-center mt-20 px-4 sm:px-6 lg:px-8">
+  <!-- Icon -->
+  <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-lg bg-gray-900 text-white">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+      class="h-6 w-6">
+      <path fill-rule="evenodd"
+        d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z"
+        clip-rule="evenodd" />
+    </svg>
+  </div>
+
+  <!-- Heading -->
+  <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold leading-snug text-blue-gray-900 mb-4 text-center">
+    What Clients Say
+  </h2>
+
+  <!-- Paragraph -->
+  <p class="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-3xl text-center">
+    Discover what our valued clients have to say about their experiences with our services. 
+    We take pride in delivering exceptional results and fostering lasting partnerships.
+  </p>
+</div>
+  <div class="p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+  <!-- client1 -->
+  <div class="p-6 text-center">
+    <img src="ceo 1.jpg" alt="Jessica Devis"
+      class="mx-auto relative object-cover object-center rounded-full w-[58px] h-[58px] mb-3">
+    <h6 class="text-sm sm:text-base font-semibold text-blue-gray-900">
+      Jessica Devis
+    </h6>
+    <p class="text-xs sm:text-sm font-medium text-gray-700 mb-3">
+      CEO @ MARKETING DIGITAL LTD.
+    </p>
+    <p class="text-sm sm:text-base text-gray-500 leading-relaxed">
+      "It has been a game-changer for my business. Their dedication,
+      expertise, and attention to detail have truly set them apart.  
+      I highly recommend their services!"
+    </p>
+  </div>
+
+  <!-- client2 -->
+  <div class="p-6 text-center">
+    <img src="ceo 2.jpg" alt="Jessica Devis"
+      class="mx-auto relative object-cover object-center rounded-full w-[58px] h-[58px] mb-3">
+    <h6 class="text-sm sm:text-base font-semibold text-blue-gray-900">
+      Jessica Devis
+    </h6>
+    <p class="text-xs sm:text-sm font-medium text-gray-700 mb-3">
+      CEO @ MARKETING DIGITAL LTD.
+    </p>
+    <p class="text-sm sm:text-base text-gray-500 leading-relaxed">
+      "It has been a game-changer for my business. Their dedication,
+      expertise, and attention to detail have truly set them apart.  
+      I highly recommend their services!"
+    </p>
+  </div>
+
+  <!-- client3 -->
+  <div class="p-6 text-center">
+    <img src="ceo 3.jpg" alt="Jessica Devis"
+      class="mx-auto relative object-cover object-center rounded-full w-[58px] h-[58px] mb-3">
+    <h6 class="text-sm sm:text-base font-semibold text-blue-gray-900">
+      Jessica Devis
+    </h6>
+    <p class="text-xs sm:text-sm font-medium text-gray-700 mb-3">
+      CEO @ MARKETING DIGITAL LTD.
+    </p>
+    <p class="text-sm sm:text-base text-gray-500 leading-relaxed">
+      "It has been a game-changer for my business. Their dedication,
+      expertise, and attention to detail have truly set them apart.  
+      I highly recommend their services!"
+    </p>
+  </div>
+</div>
+  <!-- questions -->
+  <div class="container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- Title -->
+  <div class="text-center mt-16 sm:mt-20">
+    <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight text-blue-gray-900 mb-4">
+      Frequently Asked Questions
+    </h1>
+    <p class="text-sm sm:text-base md:text-lg lg:text-xl text-gray-500 leading-relaxed mx-auto mb-12 lg:mb-24 max-w-3xl">
+      A lot of people don't appreciate the moment until it's passed. I'm not trying my hardest, and I'm not trying to do.
+    </p>
+  </div>
+
+  <!-- FAQ Grid -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-16">
+    <!-- FAQ 1 -->
+    <div class="flex flex-col">
+      <h4 class="text-2xl sm:text-xl  text-blue-gray-900 mb-4 ">
+        How do I get started?
+      </h4>
+      <p class="text-sm sm:text-base text-gray-500 leading-relaxed">
+        Getting started is easy! Simply [Provide a brief overview of the initial steps or link to a detailed guide].
+      </p>
+    </div>
+
+    <!-- FAQ 2 -->
+    <div class="flex flex-col">
+      <h4 class="text-2xl sm:text-xl  text-blue-gray-900 mb-4 ">
+        Is there a free trial available?
+      </h4>
+      <p class="text-sm sm:text-base text-gray-500 leading-relaxed">
+        Yes, we offer a 30 days free trial so you can experience our mobile application with no commitment.
+      </p>
+    </div>
+
+    <!-- FAQ 3 -->
+    <div class="flex flex-col">
+      <h4 class="text-2xl sm:text-xl  text-blue-gray-900 mb-4 ">
+        How can I upgrade my account?
+      </h4>
+      <p class="text-sm sm:text-base text-gray-500 leading-relaxed">
+        To upgrade your account, log in and navigate to the [Upgrade Account] section in your dashboard.
+      </p>
+    </div>
+
+    <!-- FAQ 4 -->
+    <div class="flex flex-col">
+      <h4 class="text-2xl sm:text-xl  text-blue-gray-900 mb-4 ">
+        Can I cancel my subscription anytime?
+      </h4>
+      <p class="text-sm sm:text-base text-gray-500 leading-relaxed">
+        Absolutely, you can cancel your subscription at any time. Your subscription will remain active until the end of the billing cycle.
+      </p>
+    </div>
+
+    <!-- FAQ 5 -->
+    <div class="flex flex-col">
+      <h4 class="text-2xl sm:text-xl  text-blue-gray-900 mb-4 ">
+        How can I upgrade my account to paid?
+      </h4>
+      <p class="text-sm sm:text-base text-gray-500 leading-relaxed">
+        To upgrade your account, log in and navigate to the [Upgrade Account] section in your dashboard. Follow the prompts to select your preferred plan.
+      </p>
+    </div>
+
+    <!-- FAQ 6 -->
+    <div class="flex flex-col">
+      <h4 class="text-2xl sm:text-xl  text-blue-gray-900 mb-4 ">
+        What if I need help or have technical issues?
+      </h4>
+      <p class="text-sm sm:text-base text-gray-500 leading-relaxed">
+        Our dedicated support team is here to assist you. Reach out via live chat, email, or phone, and we'll respond promptly.
+      </p>
+    </div>
+  </div>
+</div>
+<h1 class="text-4xl bg-amber-800 text-black p-4 font-bold">
+  Tailwind CSS Working
+</h1>
+
+
+  <!-- footer -->
+  <footer class="mt-10 bg-gray-900 px-8 pt-12">
+    <div class="container mx-auto">
+      <div class="flex flex-wrap justify-center gap-8 md:justify-between">
+        <div class="text-center md:text-left">
+          <a href="#!"
+            class="block antialiased tracking-normal font-sans text-xl font-semibold leading-snug text-white mb-4">Material
+            Tailwind</a>
+          <p class="block antialiased font-sans text-base leading-relaxed text-white mb-12 font-normal">The reward for
+            getting on the stage is fame.</p>
+          <ul class="flex flex-wrap items-center justify-center md:justify-start">
+            <li>
+              <a href="#!"
+                class="block antialiased font-sans text-base leading-relaxed text-white py-1 font-medium transition-colors pr-3">About
+                Us</a>
+            </li>
+            <li>
+              <a href="#!"
+                class="block antialiased font-sans text-base leading-relaxed text-white py-1 font-medium transition-colors px-3">Careers</a>
+            </li>
+            <li>
+              <a href="#!"
+                class="block antialiased font-sans text-base leading-relaxed text-white py-1 font-medium transition-colors px-3">Press</a>
+            </li>
+            <li>
+              <a href="#!"
+                class="block antialiased font-sans text-base leading-relaxed text-white py-1 font-medium transition-colors px-3">Blog</a>
+            </li>
+            <li>
+              <a href="#!"
+                class="block antialiased font-sans text-base leading-relaxed text-white py-1 font-medium transition-colors px-3">Pricing</a>
+            </li>
+          </ul>
+        </div>
+        <div class="mt-8 w-full md:mt-0 md:w-auto">
+          <h6
+            class="block antialiased tracking-normal font-sans text-base font-semibold leading-relaxed text-white mb-3">
+            Get the app</h6>
+          <div class="flex flex-col gap-2">
+            <button
+              class="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg bg-white text-blue-gray-900 shadow-md shadow-blue-gray-500/10 hover:shadow-lg hover:shadow-blue-gray-500/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none flex items-center justify-center"
+              type="button">
+              <img alt="ios" loading="lazy" width="256" height="256" decoding="async" data-nimg="1"
+                class="-mt-0.5 mr-2 h-6 w-6" src="apple icon.png" style="color: transparent;">App Store</button>
+            <button
+              class="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg bg-white text-blue-gray-900 shadow-md shadow-blue-gray-500/10 hover:shadow-lg hover:shadow-blue-gray-500/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none flex items-center justify-center"
+              type="button">
+              <img alt="ios" loading="lazy" width="256" height="256" decoding="async" data-nimg="1"
+                class="-mt-0.5 mr-2 h-6 w-6" src="google icon.png" style="color: transparent;">Google Play</button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-16 flex flex-wrap items-center justify-center gap-y-4 gap-x-8 border-t border-gray-700 py-7 md:justify-between">
+        <p class="block antialiased font-sans text-base leading-relaxed text-white text-center font-normal opacity-75">©
+          2025 Made with
+          <a>Material Tailwind</a>
+          by
+          <a href="https://www.creative-tim.com" target="_blank">Creative Tim
+
+          </a>
+          <a> | Distributed by
+            <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
+          </a>
+          .
+        </p>
+        <div class="flex gap-2">
+          <button
+            class="relative align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs text-white hover:bg-white/10 active:bg-white/30"
+            type="button">
+            <span class="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2">
+              <i class="fa-brands fa-twitter text-2xl not-italic opacity-75"></i>
+            </span>
+          </button>
+          <button
+            class="relative align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs text-white hover:bg-white/10 active:bg-white/30"
+            type="button">
+            <span class="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2"><i
+                class="fa-brands fa-linkedin text-2xl not-italic opacity-75">
+              </i>
+            </span>
+          </button>
+          <button
+            class="relative align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs text-white hover:bg-white/10 active:bg-white/30"
+            type="button">
+            <span class="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2"><i
+                class="fa-brands fa-facebook text-2xl not-italic opacity-75">
+              </i>
+            </span>
+          </button>
+          <button
+            class="relative align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs text-white hover:bg-white/10 active:bg-white/30"
+            type="button">
+            <span class="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2"><i
+                class="fa-brands fa-github text-2xl not-italic opacity-75">
+              </i>
+            </span>
+          </button>
+          <button
+            class="relative align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs text-white hover:bg-white/10 active:bg-white/30"
+            type="button">
+            <span class="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2">
+              <i class="fa-brands fa-dribbble text-2xl not-italic opacity-75">
+              </i>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+</body>
+
+</html>
